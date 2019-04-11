@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:id="@+id/group_create" android:visible="false">
+        <item
+            android:id="@+id/save_item"
+            android:icon="@drawable/ic_done_white_24dp"
+            android:title="@string/save"
+            app:showAsAction="always" />
+    </group>
+
+    <group android:id="@+id/group_display" android:visible="true">
+        <item
+            android:id="@+id/update_item"
+            android:icon="@drawable/ic_edit_white_24dp"
+            android:title="@string/update"
+            app:showAsAction="always" />
+
+        <item
+            android:id="@+id/delete_item"
+            android:icon="@drawable/ic_delete_white_24dp"
+            android:title="@string/delete"
+            app:showAsAction="always" />
+    </group>
+
+</menu>

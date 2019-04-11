@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <import type = "com.sap.cloud.android.odata.espmcontainer.PurchaseOrderItem" />
+        <variable name="purchaseOrderItem" type="PurchaseOrderItem"/>
+        <variable name="handler" type="com.company.wizapp2.mdui.purchaseorderitems.PurchaseOrderItemsDetailFragment" />
+    </data>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <ScrollView
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent">
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+                        xmlns:android="http://schemas.android.com/apk/res/android"
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:keyText="ItemNumber"
+                        app:valueText="@{purchaseOrderItem.getOptionalValue(PurchaseOrderItem.itemNumber).toString()}">
+                </com.sap.cloud.mobile.fiori.misc.KeyValueCell>
+
+                <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+                        xmlns:android="http://schemas.android.com/apk/res/android"
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:keyText="PurchaseOrderID"
+                        app:valueText="@{purchaseOrderItem.getOptionalValue(PurchaseOrderItem.purchaseOrderID).toString()}">
+                </com.sap.cloud.mobile.fiori.misc.KeyValueCell>
+
+                <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+                        xmlns:android="http://schemas.android.com/apk/res/android"
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:keyText="CurrencyCode"
+                        app:valueText="@{purchaseOrderItem.getOptionalValue(PurchaseOrderItem.currencyCode).toString()}">
+                </com.sap.cloud.mobile.fiori.misc.KeyValueCell>
+
+                <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+                        xmlns:android="http://schemas.android.com/apk/res/android"
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:keyText="GrossAmount"
+                        app:valueText="@{purchaseOrderItem.getOptionalValue(PurchaseOrderItem.grossAmount).toString()}">
+                </com.sap.cloud.mobile.fiori.misc.KeyValueCell>
+
+                <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+                        xmlns:android="http://schemas.android.com/apk/res/android"
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:keyText="NetAmount"
+                        app:valueText="@{purchaseOrderItem.getOptionalValue(PurchaseOrderItem.netAmount).toString()}">
+                </com.sap.cloud.mobile.fiori.misc.KeyValueCell>
+
+                <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+                        xmlns:android="http://schemas.android.com/apk/res/android"
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:keyText="ProductID"
+                        app:valueText="@{purchaseOrderItem.getOptionalValue(PurchaseOrderItem.productID).toString()}">
+                </com.sap.cloud.mobile.fiori.misc.KeyValueCell>
+
+                <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+                        xmlns:android="http://schemas.android.com/apk/res/android"
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:keyText="Quantity"
+                        app:valueText="@{purchaseOrderItem.getOptionalValue(PurchaseOrderItem.quantity).toString()}">
+                </com.sap.cloud.mobile.fiori.misc.KeyValueCell>
+
+                <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+                        xmlns:android="http://schemas.android.com/apk/res/android"
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:keyText="QuantityUnit"
+                        app:valueText="@{purchaseOrderItem.getOptionalValue(PurchaseOrderItem.quantityUnit).toString()}">
+                </com.sap.cloud.mobile.fiori.misc.KeyValueCell>
+
+                <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+                        xmlns:android="http://schemas.android.com/apk/res/android"
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:keyText="TaxAmount"
+                        app:valueText="@{purchaseOrderItem.getOptionalValue(PurchaseOrderItem.taxAmount).toString()}">
+                </com.sap.cloud.mobile.fiori.misc.KeyValueCell>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/FioriButton.Flat"
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:onClick="@{handler::onNavigationClickedToPurchaseOrderHeaders_Header}">
+
+                  <TextView
+                      android:id="@+id/link_label_to_header"
+                      style="@style/FioriButton.Flat"
+                      android:clickable="false"
+                      android:focusable="false"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_alignParentLeft="true"
+                      android:layout_centerInParent="true"
+                      android:paddingLeft="16dp"
+                      android:text="PurchaseOrderHeaders" />
+
+                  <Button
+                      android:id="@+id/link_button_to_header"
+                      style="@style/FioriButton.Flat"
+                      android:clickable="false"
+                      android:focusable="false"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_alignParentRight="true"
+                      android:layout_centerInParent="true"
+                      android:enabled="true"
+                      android:drawableStart="@drawable/ic_arrow_forward_black_24dp" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/FioriButton.Flat"
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:onClick="@{handler::onNavigationClickedToProducts_ProductDetails}">
+
+                  <TextView
+                      android:id="@+id/link_label_to_productdetails"
+                      style="@style/FioriButton.Flat"
+                      android:clickable="false"
+                      android:focusable="false"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_alignParentLeft="true"
+                      android:layout_centerInParent="true"
+                      android:paddingLeft="16dp"
+                      android:text="Products" />
+
+                  <Button
+                      android:id="@+id/link_button_to_productdetails"
+                      style="@style/FioriButton.Flat"
+                      android:clickable="false"
+                      android:focusable="false"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_alignParentRight="true"
+                      android:layout_centerInParent="true"
+                      android:enabled="true"
+                      android:drawableStart="@drawable/ic_arrow_forward_black_24dp" />
+                </RelativeLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</layout>

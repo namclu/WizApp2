@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:fitsSystemWindows="true"
+	tools:context=".mdui.ItemListActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="@dimen/item_width"
+                android:layout_height="wrap_content"
+                android:minHeight="?attr/actionBarSize"
+                app:titleTextColor="@color/colorWhite"
+                app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/secondaryToolbar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:minHeight="?attr/actionBarSize"
+                android:layout_weight="3"
+                app:titleTextColor="@color/colorWhite"
+                app:popupTheme="@style/AppTheme.PopupOverlay" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:orientation="vertical">
+
+            <com.sap.cloud.mobile.fiori.indicator.FioriProgressBar
+                android:id="@+id/indeterminateBar"
+                style="@style/FioriProgressbar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/colorPrimary"
+                android:visibility="invisible" />
+
+        </LinearLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:baselineAligned="true"
+        android:divider="?android:attr/dividerHorizontal"
+        android:orientation="horizontal"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:showDividers="middle">
+
+        <!-- This layout is a two-pane layout for the Categories master/detail flow. -->
+		
+		<android.support.v4.widget.SwipeRefreshLayout
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/swiperefresh"
+                    android:layout_width="@dimen/item_width"
+                    android:layout_height="match_parent">
+
+            <android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/item_list"
+                android:name="com.company.wizapp2.ItemListFragment"
+                android:layout_width="@dimen/item_width"
+                android:layout_height="match_parent"
+		app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+                tools:context="com.company.wizapp2.ItemListActivity"
+                tools:listitem="@layout/fragment_item_list" />
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+        <FrameLayout
+            android:id="@+id/fragment_item_detail"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3" />
+    </LinearLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        app:srcCompat="@android:drawable/ic_menu_add" />
+
+</android.support.design.widget.CoordinatorLayout>

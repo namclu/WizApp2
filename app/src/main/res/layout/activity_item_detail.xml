@@ -1,0 +1,102 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/detail_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_collapseMode="pin"
+        android:background="?attr/colorPrimary"
+        app:titleTextColor="@color/colorWhite"
+        app:theme="@style/ToolBarTheme"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:orientation="vertical">
+
+        <com.sap.cloud.mobile.fiori.indicator.FioriProgressBar
+            android:id="@+id/indeterminateBar"
+            style="@style/FioriProgressbar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:visibility="invisible" />
+
+    </LinearLayout>
+
+    <com.sap.cloud.mobile.fiori.object.ObjectHeader
+        android:id="@+id/objectHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:elevation="0dp"
+        android:paddingBottom="@dimen/md_keylines"
+        android:scrollbars="vertical"
+        app:body="@string/object_header_body"
+        app:description="@string/object_header_description"
+        app:detailImage="@drawable/ic_android_white"
+        app:footnote="@string/object_header_footnote"
+        app:headline="@string/object_header_headline"
+        app:subheadline="@string/object_header_subheadline"
+        app:statusWidth="60dp"
+        tools:layout_editor_absoluteY="8dp">
+
+        <com.sap.cloud.mobile.fiori.common.Tag
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/object_header_tag1"
+            android:textColor="@color/darkGrey"
+            app:layout_header_group="TAG" />
+
+        <com.sap.cloud.mobile.fiori.common.Tag
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/object_header_tag2"
+            app:layout_header_group="TAG" />
+
+        <com.sap.cloud.mobile.fiori.common.Tag
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/object_header_tag3"
+            app:layout_header_group="TAG" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_error_black_24dp"
+            android:tint="@color/white"
+            android:contentDescription="@string/error"
+            app:layout_header_group="STATUS" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/object_header_status"
+            android:textColor="@color/grey_300"
+            android:lines="1"
+            android:ellipsize="end"
+            app:layout_header_group="STATUS" />
+
+    </com.sap.cloud.mobile.fiori.object.ObjectHeader>
+
+   <android.support.design.widget.CoordinatorLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent">
+
+           <android.support.v4.widget.NestedScrollView
+               android:id="@+id/item_detail_container"
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:fillViewport="true"
+               app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+   </android.support.design.widget.CoordinatorLayout>
+
+</LinearLayout>

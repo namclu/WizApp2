@@ -1,0 +1,14 @@
+<resources  xmlns:tools="http://schemas.android.com/tools"
+             tools:ignore="MissingTranslation" >
+    <string name="application_name">Wiz App2</string>
+    <string name="eset_customers">Customers</string>
+    <string name="eset_productcategories">ProductCategories</string>
+    <string name="eset_producttexts">ProductTexts</string>
+    <string name="eset_products">Products</string>
+    <string name="eset_purchaseorderheaders">PurchaseOrderHeaders</string>
+    <string name="eset_purchaseorderitems">PurchaseOrderItems</string>
+    <string name="eset_salesorderheaders">SalesOrderHeaders</string>
+    <string name="eset_salesorderitems">SalesOrderItems</string>
+    <string name="eset_stock">Stock</string>
+    <string name="eset_suppliers">Suppliers</string>
+</resources>

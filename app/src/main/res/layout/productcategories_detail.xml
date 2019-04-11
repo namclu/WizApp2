@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <import type = "com.sap.cloud.android.odata.espmcontainer.ProductCategory" />
+        <variable name="productCategory" type="ProductCategory"/>
+        <variable name="handler" type="com.company.wizapp2.mdui.productcategories.ProductCategoriesDetailFragment" />
+    </data>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <ScrollView
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent">
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+                        xmlns:android="http://schemas.android.com/apk/res/android"
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:keyText="Category"
+                        app:valueText="@{productCategory.getOptionalValue(ProductCategory.category).toString()}">
+                </com.sap.cloud.mobile.fiori.misc.KeyValueCell>
+
+                <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+                        xmlns:android="http://schemas.android.com/apk/res/android"
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:keyText="CategoryName"
+                        app:valueText="@{productCategory.getOptionalValue(ProductCategory.categoryName).toString()}">
+                </com.sap.cloud.mobile.fiori.misc.KeyValueCell>
+
+                <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+                        xmlns:android="http://schemas.android.com/apk/res/android"
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:keyText="MainCategory"
+                        app:valueText="@{productCategory.getOptionalValue(ProductCategory.mainCategory).toString()}">
+                </com.sap.cloud.mobile.fiori.misc.KeyValueCell>
+
+                <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+                        xmlns:android="http://schemas.android.com/apk/res/android"
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:keyText="MainCategoryName"
+                        app:valueText="@{productCategory.getOptionalValue(ProductCategory.mainCategoryName).toString()}">
+                </com.sap.cloud.mobile.fiori.misc.KeyValueCell>
+
+                <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+                        xmlns:android="http://schemas.android.com/apk/res/android"
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:keyText="NumberOfProducts"
+                        app:valueText="@{productCategory.getOptionalValue(ProductCategory.numberOfProducts).toString()}">
+                </com.sap.cloud.mobile.fiori.misc.KeyValueCell>
+
+                <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+                        xmlns:android="http://schemas.android.com/apk/res/android"
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:keyText="UpdatedTimestamp"
+                        app:valueText="@{productCategory.getOptionalValue(ProductCategory.updatedTimestamp).toString()}">
+                </com.sap.cloud.mobile.fiori.misc.KeyValueCell>
+
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</layout>

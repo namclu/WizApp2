@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".logon.AskUsagePermissionActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Standard Onboarding Header -->
+            <ImageView
+                android:id="@+id/header_logo"
+                style="@style/OnboardingLogo"
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:layout_gravity="top|center_horizontal"
+                android:layout_marginTop="24dp"
+                android:adjustViewBounds="true"/>
+
+            <TextView
+                android:id="@+id/header_title"
+                style="@style/TextAppearance.Fiori.Onboarding.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|center_horizontal"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="48dp"
+                android:labelFor="@+id/usage_consent_allow"
+                android:text="@string/get_usage_permission_title"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/header_logo"/>
+
+            <TextView
+                android:id="@+id/header_instruction_text"
+                style="@style/TextAppearance.Fiori.Onboarding.Body"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|center_horizontal"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="48dp"
+                android:text="@string/get_usage_permission_explanation"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/header_title"/>
+        </LinearLayout>
+    </ScrollView>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@drawable/border_top"
+        android:paddingTop="6dp">
+
+        <Button
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/usage_consent_allow"
+            style="@style/Widget.Onboarding.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/button_height"
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="6dp"
+            android:minWidth="0dp"
+            android:onClick="onAllow"
+            android:text="@string/usage_permission_allow"/>
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/usage_consent_deny"
+            style="@style/Widget.Onboarding.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/button_height"
+            android:layout_gravity="bottom|start"
+            android:layout_marginBottom="6dp"
+            android:onClick="onDeny"
+            android:text="@string/usage_permission_deny"/>
+
+    </FrameLayout>
+
+    <include layout="@layout/content_progress_bar"/>
+
+</android.support.design.widget.CoordinatorLayout>

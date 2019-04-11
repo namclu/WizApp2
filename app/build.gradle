@@ -1,0 +1,127 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'com.sap.odata.android'
+
+buildscript {
+
+    repositories rootProject.ext.repos
+
+    dependencies {
+        classpath group: 'com.sap.cloud.android', name:'odata-android-gradle-plugin', version:sdkVersion
+    }
+}
+
+odata {
+   verbose true
+    services {
+      // connection id: com.sap.edm.sampleservice.v2
+      espmcontainer{
+        schemaFile file("src/main/res/raw/com_sap_edm_sampleservice_v2.xml")
+        packageName "com.sap.cloud.android.odata.espmcontainer"
+        serviceClass "ESPMContainer"
+      }
+   }
+}
+
+
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        multiDexEnabled true
+        applicationId "com.company.wizapp2"
+        minSdkVersion 23
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunnerArguments clearPackageData: 'true'
+        dataBinding.enabled = true
+        ndk {
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    testOptions {
+        execution 'ANDROID_TEST_ORCHESTRATOR'
+    }
+}
+
+configurations {
+    all {
+        exclude module: 'httpclient'
+        exclude module: 'commons-logging'
+        exclude module: 'opengl-api'
+        exclude module: 'xmlParserAPIs'
+        exclude module: 'xpp3'
+        exclude module: 'android'
+    }
+}
+
+dependencies {
+    // Android framework dependencies
+    implementation group: 'com.android.support', name: 'appcompat-v7', version: androidSupportVersion
+    implementation group: 'com.android.support', name: 'support-v4', version: androidSupportVersion
+    implementation group: 'com.android.support', name: 'recyclerview-v7', version: androidSupportVersion
+    implementation group: 'com.android.support', name: 'design', version: androidSupportVersion
+    implementation group: 'com.android.support', name: 'preference-v7', version: androidSupportVersion
+
+    // Android Architecture Components
+    implementation group: 'android.arch.lifecycle', name: 'common-java8', version: androidArchVersion
+    implementation group: 'android.arch.lifecycle', name: 'extensions', version: androidArchVersion
+
+    // JUnit dependency
+    testImplementation 'junit:junit:4.12'
+
+    // SAP Cloud Android SDK dependencies
+     implementation group: 'com.sap.cloud.android', name: 'fiori', version: sdkVersion
+     implementation group: 'com.sap.cloud.android', name: 'onboarding', version: sdkVersion
+     implementation group:'com.sap.cloud.android', name:'odata', version: sdkVersion
+     implementation group: 'com.sap.cloud.android', name: 'foundation', version: sdkVersion
+
+     // Logging dependency
+     implementation 'com.github.tony19:logback-android:1.3.0-2'
+
+
+    // Glide for loading of Media Resources
+    implementation ('com.github.bumptech.glide:glide:4.7.1') {
+        exclude group: 'com.android.support'
+    }
+    implementation 'com.github.bumptech.glide:okhttp3-integration:4.7.1'
+    kapt 'com.github.bumptech.glide:compiler:4.7.1'
+
+
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:3.0.1', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+        exclude group: 'com.google.code.findbugs'
+    })
+
+    androidTestImplementation ('com.android.support.test.espresso:espresso-contrib:3.0.1'){
+        exclude module: 'support-annotations'
+        exclude module: 'support-v4'
+        exclude module: 'support-v13'
+        exclude module: 'design'
+    }
+
+     // For UI testing
+     androidTestImplementation 'com.pgs-soft:espressodoppio:1.0.0'
+     androidTestImplementation 'com.android.support.test.uiautomator:uiautomator-v18:2.1.3'
+     androidTestUtil 'com.android.support.test:orchestrator:1.0.2'
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+}
+
+

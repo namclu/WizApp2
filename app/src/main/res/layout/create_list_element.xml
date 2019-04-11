@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:weightSum="100">
+
+    <TextView
+        android:id="@+id/property_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:labelFor="@+id/property_value"
+        android:paddingEnd="10dip"
+        android:paddingStart="10dip"
+        android:textAlignment="viewStart"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/property_value"
+        android:imeOptions="flagNoExtractUi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingEnd="20dip"
+        android:paddingStart="20dip"
+        android:textAlignment="viewStart"
+        tools:ignore="TextFields" />
+
+</LinearLayout>

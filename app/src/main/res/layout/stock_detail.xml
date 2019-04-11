@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <import type = "com.sap.cloud.android.odata.espmcontainer.Stock" />
+        <variable name="stock" type="Stock"/>
+        <variable name="handler" type="com.company.wizapp2.mdui.stock.StockDetailFragment" />
+    </data>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <ScrollView
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent">
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+                        xmlns:android="http://schemas.android.com/apk/res/android"
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:keyText="ProductID"
+                        app:valueText="@{stock.getOptionalValue(Stock.productID).toString()}">
+                </com.sap.cloud.mobile.fiori.misc.KeyValueCell>
+
+                <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+                        xmlns:android="http://schemas.android.com/apk/res/android"
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:keyText="LotSize"
+                        app:valueText="@{stock.getOptionalValue(Stock.lotSize).toString()}">
+                </com.sap.cloud.mobile.fiori.misc.KeyValueCell>
+
+                <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+                        xmlns:android="http://schemas.android.com/apk/res/android"
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:keyText="MinStock"
+                        app:valueText="@{stock.getOptionalValue(Stock.minStock).toString()}">
+                </com.sap.cloud.mobile.fiori.misc.KeyValueCell>
+
+                <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+                        xmlns:android="http://schemas.android.com/apk/res/android"
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:keyText="Quantity"
+                        app:valueText="@{stock.getOptionalValue(Stock.quantity).toString()}">
+                </com.sap.cloud.mobile.fiori.misc.KeyValueCell>
+
+                <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+                        xmlns:android="http://schemas.android.com/apk/res/android"
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:keyText="QuantityLessMin"
+                        app:valueText="@{stock.getOptionalValue(Stock.quantityLessMin).toString()}">
+                </com.sap.cloud.mobile.fiori.misc.KeyValueCell>
+
+                <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+                        xmlns:android="http://schemas.android.com/apk/res/android"
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:keyText="UpdatedTimestamp"
+                        app:valueText="@{stock.getOptionalValue(Stock.updatedTimestamp).toString()}">
+                </com.sap.cloud.mobile.fiori.misc.KeyValueCell>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/FioriButton.Flat"
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:onClick="@{handler::onNavigationClickedToProducts_ProductDetails}">
+
+                  <TextView
+                      android:id="@+id/link_label_to_productdetails"
+                      style="@style/FioriButton.Flat"
+                      android:clickable="false"
+                      android:focusable="false"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_alignParentLeft="true"
+                      android:layout_centerInParent="true"
+                      android:paddingLeft="16dp"
+                      android:text="Products" />
+
+                  <Button
+                      android:id="@+id/link_button_to_productdetails"
+                      style="@style/FioriButton.Flat"
+                      android:clickable="false"
+                      android:focusable="false"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_alignParentRight="true"
+                      android:layout_centerInParent="true"
+                      android:enabled="true"
+                      android:drawableStart="@drawable/ic_arrow_forward_black_24dp" />
+                </RelativeLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</layout>
